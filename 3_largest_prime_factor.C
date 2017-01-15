@@ -1,41 +1,62 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node {
-  int x;
-  struct node *next;
-};
+typedef struct node {
+    int val;
+    struct node * next;
+} node_t;
 
-int main()
-{
-    /* This won't change, or we would lose the list in memory */
-    struct node *root;       
-    /* This will point to each node as it traverses the list */
-    struct node *conductor;  
+void print_list(node_t * head) {
+    node_t * current = head;
 
-    root = malloc( sizeof(struct node) );  
-    root->next = 0;   
-    root->x = 12;
-    conductor = root; 
-    if ( conductor != 0 ) {
-        while ( conductor->next != 0)
-        {
-            conductor = conductor->next;
-        }
+    while (current != NULL) {
+        printf("%d\n", current->val);
+        current = current->next;
     }
-    /* Creates a node at the end of the list */
-    conductor->next = malloc( sizeof(struct node) );  
+}
 
-    conductor = conductor->next; 
-
-    if ( conductor == 0 )
-    {
-        printf( "Out of memory" );
-        return 0;
+void push(node_t * head, int val) {
+    node_t * current = head;
+    while (current->next != NULL) {
+        current = current->next;
     }
-    /* initialize the new memory */
-    conductor->next = 0;         
-    conductor->x = 42;
 
-    return 0;
+    /* now we can add a new variable */
+    current->next = (struct node *)malloc(sizeof(node_t));
+    current->next->val = val;
+    current->next->next = NULL;
+}
+
+int pop(node_t ** head) {
+    int retval = -1;
+    node_t * next_node = NULL;
+
+    if (*head == NULL) {
+        return -1;
+    }
+
+    next_node = (*head)->next;
+    retval = (*head)->val;
+    free(*head);
+    *head = next_node;
+
+    return retval;
+}
+
+
+int main(void) {
+    node_t * test_list = (struct node *)malloc(sizeof(node_t));
+
+    test_list->val = 1;
+    test_list->next = (struct node *)malloc(sizeof(node_t));
+    test_list->next->val = 2;
+    test_list->next->next = (struct node *)malloc(sizeof(node_t));
+    test_list->next->next->val = 3;
+    test_list->next->next->next = (struct node *)malloc(sizeof(node_t));
+    test_list->next->next->next->val = 4;
+    test_list->next->next->next->next = NULL;
+
+    print_list(test_list);
+
+    return EXIT_SUCCESS;
 }
