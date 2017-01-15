@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 typedef struct node {
     int val;
@@ -46,13 +47,24 @@ int pop(node_t ** head) {
 
 int main(void) {
     node_t * test_list = (struct node *)malloc(sizeof(node_t));
-	float limit = float(600851475143/2+1);
-	printf("%f", limit);
-	for(float i = 2.0; i < limit; i+=1.0){
-		printf("%f\n", i);
-		push(test_list, i);
+	double number = 600851475143;
+	double limit = double(round(number/2))+1;
+	/*printf("limit = %f\n", limit);*/
+	
+	for(double i = 2; i < limit; i++){
+		/*printf("%f\n", i);*/
+		
+		/*printf("%d\n", fmod(number, i)==0);*/
+		/*printf(fmod(number, i)==0 ? "true": "false");*/
+		
+		if(fmod(number, i)==0){
+			printf("%f", i);
+			push(test_list, i);
+		}
+		
 	}
-
+	
+	
     print_list(test_list);
 
     return EXIT_SUCCESS;
