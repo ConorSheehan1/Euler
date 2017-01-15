@@ -44,6 +44,16 @@ int pop(node_t ** head) {
     return retval;
 }
 
+int isPrime(int n){
+	for(int i = 2; i < sqrt(n); i++){
+		if(n%i == 0){
+			/* return 0 for false (booleans aren't primitive in c)*/
+			return 0;
+		}
+	}
+	/* return 1 for true*/
+	return 1;
+}
 
 int main(void) {
     node_t * test_list = (struct node *)malloc(sizeof(node_t));
@@ -51,6 +61,7 @@ int main(void) {
 	double limit = double(sqrt(number/2))+1;
 	printf("limit = %f\n", limit);
 	
+	/* add divisors to linked list*/
 	for(double i = 2; i < limit; i++){
 		/*printf("%f\n", i);*/
 		
@@ -59,9 +70,17 @@ int main(void) {
 		
 		if(fmod(number, i)==0){
 			push(test_list, i);
-		}
-		
+		}		
 	}
+	
+	/* cycle through linked list until largest prime is found */
+	double current = test_list->val;
+	printf("current %f", current);
+	/*while(current.next != NULL){
+		current = current->next;
+	}*/
+	
+	
 	
 	
     print_list(test_list);
