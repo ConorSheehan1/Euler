@@ -73,17 +73,22 @@ int main(void) {
 		}		
 	}
 	
-	/* cycle through linked list until largest prime is found */
-	double current = test_list->val;
-	printf("current %f", current);
-	/*while(current.next != NULL){
-		current = current->next;
-	}*/
+	double largestPrime;
+	/* cycle through linked list until largest prime is found
+	   values in linked list are already sorted smallest to largest
+	   so just keep overwriting largestPrime if value is a prime*/	
+	node_t * current = test_list;
+
+    while (current != NULL) {
+		int val = current->val;
+		if(isPrime(val)==1){
+			largestPrime = val;
+		}
+        current = current->next;
+    }
 	
+	printf("largest prime factor = %f\n", largestPrime);
 	
-	
-	
-    print_list(test_list);
 
     return EXIT_SUCCESS;
 }
