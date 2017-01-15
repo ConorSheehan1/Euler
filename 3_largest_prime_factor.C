@@ -48,8 +48,8 @@ int pop(node_t ** head) {
 int main(void) {
     node_t * test_list = (struct node *)malloc(sizeof(node_t));
 	double number = 600851475143;
-	double limit = double(round(number/2))+1;
-	/*printf("limit = %f\n", limit);*/
+	double limit = double(sqrt(number/2))+1;
+	printf("limit = %f\n", limit);
 	
 	for(double i = 2; i < limit; i++){
 		/*printf("%f\n", i);*/
@@ -58,7 +58,6 @@ int main(void) {
 		/*printf(fmod(number, i)==0 ? "true": "false");*/
 		
 		if(fmod(number, i)==0){
-			printf("%f", i);
 			push(test_list, i);
 		}
 		
