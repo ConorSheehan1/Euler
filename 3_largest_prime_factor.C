@@ -46,15 +46,12 @@ int pop(node_t ** head) {
 
 int main(void) {
     node_t * test_list = (struct node *)malloc(sizeof(node_t));
-
-    test_list->val = 1;
-    test_list->next = (struct node *)malloc(sizeof(node_t));
-    test_list->next->val = 2;
-    test_list->next->next = (struct node *)malloc(sizeof(node_t));
-    test_list->next->next->val = 3;
-    test_list->next->next->next = (struct node *)malloc(sizeof(node_t));
-    test_list->next->next->next->val = 4;
-    test_list->next->next->next->next = NULL;
+	float limit = float(600851475143/2+1);
+	printf("%f", limit);
+	for(float i = 2.0; i < limit; i+=1.0){
+		printf("%f\n", i);
+		push(test_list, i);
+	}
 
     print_list(test_list);
 
