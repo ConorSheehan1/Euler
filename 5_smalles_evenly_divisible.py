@@ -1,7 +1,7 @@
 def min_divisible(top):
     start = top
     while True:
-        if any(start % i == 0 for i in range(2, top)):
+        if all(start % i == 0 for i in range(2, top)):
             print(start)
             break
         start += 1
