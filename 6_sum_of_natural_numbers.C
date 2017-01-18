@@ -2,14 +2,15 @@
 # include <stdlib.h>
 # include <math.h>
 int main(){
+	/* sum of natural numbers is n(n+1)/2
+		sum of squares is n(n+1)(2n+1)/6
+	*/
+	
 	int start = 100;
-	int sum = (start+1) * (start/2);
+	/*int sum = (start+1) * (start/2);*/
+	int sum = (start*(start+1))/2;
 	int squared_post = sum * sum;
-	int squared_pre = 0;
-	for(int i = 1; i <= start; i++){
-		/* square i and add it to variable */
-		squared_pre += i*i;
-	}
+	int squared_pre = (start*(start+1)*((2*start)+1))/6;
 	
 	
 	
