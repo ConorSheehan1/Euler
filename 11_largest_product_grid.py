@@ -2,11 +2,12 @@ def product(arr):
     accum = 1
     for val in arr:
         accum *= val
-    print(arr)
+    print(arr ,"=", accum)
     return accum
 
 
 def horizontal_max(window, arr):
+    print("horizontal")
     curmax = product(arr[0][:window])
     for i in range(len(arr)):
         for j in range(len(arr[i])+1-window):
@@ -17,6 +18,7 @@ def horizontal_max(window, arr):
 
 
 def vertical_max(window, arr):
+    print("vertical")
     curmax = product([arr[i][0] for i in range(window)])
     for i in range(len(arr)+1-window):
         for j in range(len(arr[i])):
@@ -27,6 +29,7 @@ def vertical_max(window, arr):
 
 
 def diagonal_max(window, arr):
+    print("diagonal")
     rows = list(range(window))
     cols = list(range(window))
 
@@ -53,12 +56,12 @@ while next != "":
     next = input()
     user += "\n"+next
 
-#split text into sublists and cast to int
+# split text into sublists and cast to int
 arr = list(map(lambda n: list(map(int, n.split(" "))), user[:-1].split("\n")))
 
 print("grid parsed as", arr)
 
-w=2
-print("horizontal", horizontal_max(w, arr))
-print("vertical", vertical_max(w, arr))
-print("diagonal", diagonal_max(w, arr))
+w = 2
+print("max product = ", max(horizontal_max(w, arr), vertical_max(w, arr), diagonal_max(w, arr)))
+
+#51267216 incorrect
