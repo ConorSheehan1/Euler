@@ -1,67 +1,74 @@
-def product(arr):
-    accum = 1
-    for val in arr:
-        accum *= val
-    print(arr ,"=", accum)
-    return accum
+grid = []
+with open("input.txt") as f:
+   for line in f.readlines():
+     temp = list(map(int, line.replace("\n", "").split(" ")))
+     grid.append(temp)
 
+m = 0
 
-def horizontal_max(window, arr):
-    print("horizontal")
-    curmax = product(arr[0][:window])
-    for i in range(len(arr)):
-        for j in range(len(arr[i])+1-window):
-            newmax = product(arr[i][j:j+window])
-            if newmax > curmax:
-                curmax = newmax
-    return curmax
+def horizontal_max(grid):
+  # m = 0
+  global m
+  for row in grid:
+    for i in range(len(row)-4):
+      product = 1
+      for j in range(i, i+4):
+        product *= row[j]
+        if product > m:
+          m = product
+  # return m
 
+def vertical_max(grid):
+  # m = 0
+  global m 
+  for col in zip(*grid):
+    for i in range(len(col)-4):
+      product = 1
+      for j in range(i, i+4):
+        product*=col[j]
+        if product > m:
+          m = product
+  # return m
 
-def vertical_max(window, arr):
-    print("vertical")
-    curmax = product([arr[i][0] for i in range(window)])
-    for i in range(len(arr)+1-window):
-        for j in range(len(arr[i])):
-            newmax = product([arr[x][j] for x in range(i, i+window)])
-            if newmax>curmax:
-                curmax=newmax
-    return curmax
+def diagonal_right_max(grid):
+  global m
+  slant = [0,1,2,3]
+  for i in range(len(grid)-3):
+    for j in range(len(grid)-3):
+      product=1
+      for val in slant:
+        product *= grid[val+i][val+j]
+        # print(grid[val+i][val+j], " ", end="")
+        if product > m:
+          m = product
 
+      # print("*= ", product, end="")
+      # print("\n")
 
-def diagonal_max(window, arr):
-    print("diagonal")
-    rows = list(range(window))
-    cols = list(range(window))
+def diagonal_left_max(grid):
+  global m
+  slant = [0,1,2,3]
+  for i in range(3, len(grid)):
+    for j in range(len(grid)-3):
+      product=1
+      for val in slant:
+        # print(i-val, val+j)
+        # print(grid[i-val][val+j], " ", end="")
+        product*=grid[i-val][val+j]
+        if product > m:
+          m = product
+      # print("*= ", product, end="")
+      # print("\n")
+        
+# print("left")
+diagonal_left_max(grid)
 
-    curmax = product([arr[i][i] for i in rows])
+# print("right")
+diagonal_right_max(grid)
+horizontal_max(grid)
+vertical_max(grid)
+print(m)
 
-    while cols[-1] < len(arr):
-        # move diagonal window to right before moving down
-        # reset rows every time you change column
-        currows = rows
-        while currows[-1] < len(arr[0]):
-            # get the nth value of both cols and rows and add to list, then get product
-            newmax = product([arr[cols[i]][currows[i]] for i in range(window)])
-            if newmax > curmax:
-                curmax = newmax
-            currows = list(map(lambda n: n+1, currows))
-        cols = list(map(lambda n: n+1, cols))
+# 51267216 wrong
+# 70600674
 
-    return curmax
-
-
-user = input("grid of nums\n")
-next ="x"
-while next != "":
-    next = input()
-    user += "\n"+next
-
-# split text into sublists and cast to int
-arr = list(map(lambda n: list(map(int, n.split(" "))), user[:-1].split("\n")))
-
-print("grid parsed as", arr)
-
-w = 2
-print("max product = ", max(horizontal_max(w, arr), vertical_max(w, arr), diagonal_max(w, arr)))
-
-#51267216 incorrect
