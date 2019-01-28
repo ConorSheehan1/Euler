@@ -10,6 +10,3 @@ for a in range(999, 100, -1):
         if is_pal(product):
             pals.append(product)
 print(max(pals))
-
-
-
