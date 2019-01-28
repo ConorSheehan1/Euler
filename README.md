@@ -12,4 +12,4 @@ Show lint problems
 
 Fix lint errors in place
   
-    autopep8 --recursive --inplace .
+    autopep8 --recursive --in-place .

@@ -15,6 +15,7 @@ def collatz_sequence(start):
     sequence.append(1)
     return sequence
 
+
 if __name__ == "__main__":
     # print(collatz_sequence(13))
     assert(collatz_sequence(13) == [13, 40, 20, 10, 5, 16, 8, 4, 2, 1])
