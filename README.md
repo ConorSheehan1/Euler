@@ -1,1 +1,1 @@
-C and Python practice using https://projecteuler.net/
+Project Euler practice https://projecteuler.net/

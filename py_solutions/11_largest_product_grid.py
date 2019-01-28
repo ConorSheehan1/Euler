@@ -1,5 +1,5 @@
 grid = []
-with open("input.txt") as f:
+with open("input/11.txt") as f:
     for line in f.readlines():
         temp = list(map(int, line.replace("\n", "").split(" ")))
         grid.append(temp)
