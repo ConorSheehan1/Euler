@@ -1,5 +1,12 @@
+# add indent after access modifier e.g. private
 Layout/IndentationConsistency:
   EnforcedStyle: rails
+
+# Use double quotes by default, common in large projects including rails
+# https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
   
 Style/ColonMethodCall:
   Enabled: false
@@ -8,6 +15,8 @@ Style/ColonMethodCall:
 Style/RegexpLiteral:
   Enabled: false
 
+# prefer parens for method calls with args
+# exceptions for Gmefile, spec, require, etc. type methods
 Style/MethodCallWithArgsParentheses:
   Enabled: true
   IgnoredMethods:
@@ -20,13 +29,6 @@ Style/MethodCallWithArgsParentheses:
     - to
     - to_not
 
-# don't link .zero? instead of == 0
+# don't like .zero? instead of == 0
 Style/NumericPredicate:
   Enabled: false
-
-# Use double quotes by default
-# https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
-# 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
