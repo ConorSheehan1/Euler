@@ -1,3 +1,10 @@
+# jetbrains IDE stuff
 .idea/
+
+# compiled binaries from gcc source.C files
 *.exe
+*.out
+
+# scripts for pyenv
 *.sh
+

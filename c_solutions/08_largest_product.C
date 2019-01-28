@@ -5,19 +5,19 @@ int stupid_number[] = {7, 3, 1, 6, 7, 1, 7, 6, 5, 3, 1, 3, 3, 0, 6, 2, 4, 9, 1, 
 
 
 int main(){
-	long int max_sum = 0;
-	int size_of_window = 13;
-	for(int i = 0; i <= 1000-size_of_window; i++){
-		long int temp = 1;
-		for(int j=0; j < size_of_window; j++){
-			temp*=stupid_number[i+j];
-		}
-		if(temp > max_sum){
-			for(int k=0; k<13; k++){
-				printf("%d, ", stupid_number[i+k]);
-			}
-			max_sum = temp;
-		}
-	}
-	printf("sum = %ld\n", max_sum);
+    long int max_sum = 0;
+    int size_of_window = 13;
+    for(int i = 0; i <= 1000-size_of_window; i++){
+        long int temp = 1;
+        for(int j=0; j < size_of_window; j++){
+            temp*=stupid_number[i+j];
+        }
+        if(temp > max_sum){
+            for(int k=0; k<13; k++){
+                printf("%d, ", stupid_number[i+k]);
+            }
+            max_sum = temp;
+        }
+    }
+    printf("sum = %ld\n", max_sum);
 }
