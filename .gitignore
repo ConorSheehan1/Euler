@@ -10,3 +10,6 @@
 
 # works in progress
 *.do_not_run
+
+# byebug
+*.byebug*

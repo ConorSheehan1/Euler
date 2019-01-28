@@ -77,9 +77,9 @@ class RbUtil < Thor
     # @param [String] input
     def with_output(day, _input)
       require_relative "src/#{day}.rb"
-      # func = method("day_#{day}".to_sym)
-      # results = func.call
-      yield(solution)
+      func = method("solution_#{day}".to_sym)
+      results = func.call
+      yield(results)
     end
 
     # @param [String] message

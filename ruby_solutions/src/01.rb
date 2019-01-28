@@ -8,6 +8,6 @@ def day_01(limit)
   to_sum.sum
 end
 
-def solution
+def solution_01
   day_01(1000)
 end

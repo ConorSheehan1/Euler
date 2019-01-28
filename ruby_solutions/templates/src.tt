@@ -1,9 +1,5 @@
 # frozen_string_literal: true
 
-def day_<%= config[:day] %>
-
-end
-
-def solution
+def solution_<%= config[:day] %>
 
 end
