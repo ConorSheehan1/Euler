@@ -20,6 +20,10 @@ Style/MethodCallWithArgsParentheses:
     - to
     - to_not
 
+# don't link .zero? instead of == 0
+Style/NumericPredicate:
+  Enabled: false
+
 # Use double quotes by default
 # https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
 # 

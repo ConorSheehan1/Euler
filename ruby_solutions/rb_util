@@ -3,8 +3,8 @@
 
 require "thor"
 
-# Utility class for generating running and testing 
-# clone of advent of code util 
+# Utility class for generating running and testing
+# clone of advent of code util
 # https://github.com/ConorSheehan1/advent_of_code_2018/blob/92672e50f17d24f5b08d0342fa799478a38544b8/aoc
 class RbUtil < Thor
   include Thor::Actions
@@ -75,7 +75,7 @@ class RbUtil < Thor
 
     # @param [String] day
     # @param [String] input
-    def with_output(day, input)
+    def with_output(day, _input)
       require_relative "src/#{day}.rb"
       # func = method("day_#{day}".to_sym)
       # results = func.call
