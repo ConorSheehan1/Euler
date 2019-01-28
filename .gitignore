@@ -8,3 +8,5 @@
 # scripts for pyenv
 *.sh
 
+# works in progress
+*.do_not_run

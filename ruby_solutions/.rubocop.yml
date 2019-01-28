@@ -1,0 +1,28 @@
+Layout/IndentationConsistency:
+  EnforcedStyle: rails
+  
+Style/ColonMethodCall:
+  Enabled: false
+
+# use %r for long expressions e.g shared_constants acronym_regex
+Style/RegexpLiteral:
+  Enabled: false
+
+Style/MethodCallWithArgsParentheses:
+  Enabled: true
+  IgnoredMethods:
+    - expect
+    - gem
+    - require
+    - require_relative
+    - raise
+    - source
+    - to
+    - to_not
+
+# Use double quotes by default
+# https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
+# 
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
