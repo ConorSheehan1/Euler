@@ -1,6 +1,6 @@
 # include <stdio.h>
 main(){
-    int sum = 0;
+  int sum = 0;
 	int a = 1;
 	int b = 2;
 	while (a < 4000000){

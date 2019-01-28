@@ -12,7 +12,5 @@ int main(){
 	int squared_post = sum * sum;
 	int squared_pre = (start*(start+1)*((2*start)+1))/6;
 	
-	
-	
 	printf("sum = %d, post squared = %d, pre squared = %d, difference = %d", sum, squared_post, squared_pre, abs(squared_pre-squared_post));
 }
