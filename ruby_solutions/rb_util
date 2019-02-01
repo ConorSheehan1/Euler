@@ -38,27 +38,23 @@ class RbUtil < Thor
     end
   end
 
-  desc "to_screen file_name INPUT (default=in/file_name.txt)",
-       "Send output to the console"
+  desc "to_screen FILE_NAME", "Send output to the console"
   # @param [String] file_name
-  # @param [String] input
-  def to_screen(file_name, input = nil)
-    with_output(file_name, input) do |output|
+  def to_screen(file_name)
+    with_output(file_name) do |output|
       puts(output)
     end
   end
 
   # @param [String] file_name
-  # @param [String] input
-  desc "to_file file_name INPUT (default=in/$file_name.txt)",
-       "Send output to a file"
-  def to_file(file_name, input = nil)
+  desc "to_file FILE_NAME", "Send output to a file"
+  def to_file(file_name)
     out_f = "out/#{file_name}.txt"
     confirm("#{out_f} already exists. Overwrite") if File.exist?(out_f)
     puts("writing to #{out_f}")
 
     File.open("out/#{file_name}.txt", "w") do |f|
-      with_output(file_name, input) do |output|
+      with_output(file_name) do |output|
         f.write(output)
       end
     end
@@ -78,8 +74,7 @@ class RbUtil < Thor
   private
 
     # @param [String] file_name
-    # @param [String] input
-    def with_output(file_name, _input)
+    def with_output(file_name)
       require_relative "src/#{file_name}.rb"
       func = method("solution_#{file_name}".to_sym)
       results = func.call
