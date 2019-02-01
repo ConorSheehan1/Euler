@@ -15,7 +15,8 @@ class RbUtil < Thor
   end
 
   # https://github.com/erikhuda/thor/issues/120
-  desc "generate file_name", "Generate a src and test file for a given file_name"
+  desc "generate file_name",
+       "Generate a src and test file for a given file_name"
   # @param [String] file_name
   def generate(file_name)
     opts = { file_name: file_name }
@@ -23,7 +24,8 @@ class RbUtil < Thor
     template("templates/spec.tt", "spec/#{file_name}_spec.rb", opts)
   end
 
-  desc "destroy file_name", "Delete the src and test file for a given file_name"
+  desc "destroy file_name",
+       "Delete the src and test file for a given file_name"
   # @param [String] file_name
   def destroy(file_name)
     files = ["src/#{file_name}.rb", "spec/#{file_name}_spec.rb"]
@@ -36,7 +38,8 @@ class RbUtil < Thor
     end
   end
 
-  desc "to_screen file_name INPUT (default=in/file_name.txt)", "Send output to the console"
+  desc "to_screen file_name INPUT (default=in/file_name.txt)",
+       "Send output to the console"
   # @param [String] file_name
   # @param [String] input
   def to_screen(file_name, input = nil)
@@ -47,7 +50,8 @@ class RbUtil < Thor
 
   # @param [String] file_name
   # @param [String] input
-  desc "to_file file_name INPUT (default=in/$file_name.txt)", "Send output to a file"
+  desc "to_file file_name INPUT (default=in/$file_name.txt)",
+       "Send output to a file"
   def to_file(file_name, input = nil)
     out_f = "out/#{file_name}.txt"
     confirm("#{out_f} already exists. Overwrite") if File.exist?(out_f)

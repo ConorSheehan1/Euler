@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-def sum_digits_pow(n)
-  digits = "#{2 ** n}"
+def sum_digits_pow(number)
+  digits = (2**number).to_s
   digits.scan(/\d/).map(&:to_i).sum
 end
 
