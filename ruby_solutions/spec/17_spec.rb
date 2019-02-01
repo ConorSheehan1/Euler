@@ -20,7 +20,7 @@ describe "word_length" do
 end
 
 describe "int_to_word_letter_count" do
-  it "should count the number of letters in the word version of each number up to limit" do
+  it "should sum the length of the word version of each number up to limit" do
     expect(int_to_word_letter_count(5)).to eq(19)
   end
 end

@@ -1,3 +1,5 @@
+inherit_from: .rubocop_todo.yml
+
 # add indent after access modifier e.g. private
 Layout/IndentationConsistency:
   EnforcedStyle: rails
