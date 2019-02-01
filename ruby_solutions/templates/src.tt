@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-def solution_<%= config[:day] %>
+def solution_<%= config[:file_name] %>
 
 end
