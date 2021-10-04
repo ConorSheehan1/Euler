@@ -1,0 +1,15 @@
+{
+  "name": "js_solutions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "npm run prettier --write ."
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "prettier": "^2.4.1"
+  }
+}
