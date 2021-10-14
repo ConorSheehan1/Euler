@@ -1,5 +1,5 @@
 const collatzNum = (n) => {
-  if (n % 2 == 0) return Math.floor(n / 2);
+  if (n % 2 == 0) return n / 2;
   return 3 * n + 1;
 };
 
